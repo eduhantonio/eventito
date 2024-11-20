@@ -11,6 +11,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.eventito.controller.DatabaseConnection;
 
+import java.sql.Connection;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -19,8 +21,7 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        new DatabaseConnection.ConnectTask().execute();
-        Toast.makeText(this, "Tentando conectar ao banco de dados", Toast.LENGTH_SHORT).show();
+        DatabaseConnection.connect();
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
