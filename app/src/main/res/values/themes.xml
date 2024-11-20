@@ -1,8 +1,15 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.Eventito" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/bege_escuro</item>
+        <item name="colorPrimaryVariant">@color/bege_escuro</item>
+        <item name="colorOnPrimary">@color/bege_claro</item>
+
+        <item name="colorSecondary">@color/bege_escuro</item>
+        <item name="colorSecondaryVariant">@color/bege_escuro</item>
+        <item name="colorOnSecondary">@color/bege_claro</item>
+
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
     </style>
 
     <style name="Theme.Eventito" parent="Base.Theme.Eventito" />
