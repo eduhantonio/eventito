@@ -75,8 +75,7 @@
         android:backgroundTint="@color/bege_escuro"
         android:elevation="6dp"
         android:textStyle="bold"
-        android:fontFamily="sans-serif-medium"
-        android:cornerRadius="50dp" />
+        android:fontFamily="sans-serif-medium" />
 
     <!-- Texto informativo -->
     <TextView
@@ -104,6 +103,5 @@
         android:backgroundTint="@color/marrom"
         android:elevation="6dp"
         android:textStyle="bold"
-        android:fontFamily="sans-serif-medium"
-        android:cornerRadius="50dp" />
+        android:fontFamily="sans-serif-medium" />
 </LinearLayout>
