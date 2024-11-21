@@ -15,7 +15,7 @@ public class PerfilUsuario extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.perfil_usuario);
+        setContentView(R.layout.activity_perfil_usuario);
 
         // Criar conquistas fixas
         List<Conquista> conquistas = new ArrayList<>();

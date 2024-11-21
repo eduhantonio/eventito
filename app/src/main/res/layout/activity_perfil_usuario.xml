@@ -3,13 +3,13 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:background="@color/creme">
+    android:background="@drawable/background_gradient">
 
     <!-- Cabeçalho -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="@drawable/bannereventito"> <!-- Fundo decorado -->
+        android:background="@drawable/banner_eventito"> <!-- Fundo decorado -->
 
         <!-- Imagem Circular -->
         <ImageView
@@ -18,8 +18,8 @@
             android:layout_height="150dp"
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
-            android:src="@drawable/eventito_icon"
-            android:background="@drawable/circle_background" />
+            android:src="@drawable/logo_eventito"
+            android:background="@drawable/background_circle" />
     </RelativeLayout>
 
     <!-- Nome do Usuário -->

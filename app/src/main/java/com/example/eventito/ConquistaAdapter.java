@@ -37,7 +37,7 @@ public class ConquistaAdapter extends ArrayAdapter<Conquista> {
         nome.setText(conquista.getNome());
         descricao.setText(conquista.getDescricao());
         pontos.setText(conquista.getPontosAtuais() + " / " + conquista.getPontosTotais());
-        imagem.setImageResource(R.drawable.eventito_icon); // Imagem fixa para exemplo
+        imagem.setImageResource(R.drawable.logo_eventito); // Imagem fixa para exemplo
 
         return convertView;
     }

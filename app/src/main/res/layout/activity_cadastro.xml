@@ -7,31 +7,18 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@drawable/gradient_background"
+    android:background="@drawable/background_gradient"
     tools:context=".Cadastro">
 
     <!-- Banner -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@drawable/banner_eventito"
+        android:layout_height="220dp"
+        android:background="@drawable/banner_cadastro_eventito"
+        android:gravity="center"
         android:orientation="vertical"
-        android:gravity="center">
-
-        <ImageView
-            android:id="@+id/imageViewBanner"
-            android:layout_width="match_parent"
-            android:layout_height="129dp"
-            app:srcCompat="@drawable/logo_eventito_banner" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Crie sua conta no Eventito!"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:fontFamily="sans-serif" />
+        android:padding="8dp"
+        >
     </LinearLayout>
 
     <!-- Campos de Entrada -->
@@ -52,9 +39,9 @@
             android:layout_height="wrap_content"
             android:hint="Nome"
             android:padding="12dp"
-            android:drawableStart="@drawable/ic_user"
+            android:drawableStart="@drawable/icon_usuario"
             android:drawablePadding="8dp"
-            android:backgroundTint="@android:color/transparent"
+            android:background="@drawable/input_background"
             android:inputType="textPersonName"
             android:fontFamily="sans-serif" />
 
@@ -65,9 +52,9 @@
             android:layout_height="wrap_content"
             android:hint="Email"
             android:padding="12dp"
-            android:drawableStart="@drawable/ic_email"
+            android:drawableStart="@drawable/icon_email"
+            android:background="@drawable/input_background"
             android:drawablePadding="8dp"
-            android:backgroundTint="@android:color/transparent"
             android:inputType="textEmailAddress"
             android:layout_marginTop="16dp"
             android:fontFamily="sans-serif" />
@@ -79,9 +66,9 @@
             android:layout_height="wrap_content"
             android:hint="Senha"
             android:padding="12dp"
-            android:drawableStart="@drawable/ic_password"
+            android:drawableStart="@drawable/icon_senha"
             android:drawablePadding="8dp"
-            android:backgroundTint="@android:color/transparent"
+            android:background="@drawable/input_background"
             android:inputType="textPassword"
             android:layout_marginTop="16dp"
             android:fontFamily="sans-serif" />
@@ -95,29 +82,35 @@
         android:text="Cadastrar"
         android:layout_marginTop="16dp"
         android:padding="12dp"
-        android:textColor="@color/white"
-        android:background="@drawable/button_background"
+        android:textColor="@color/creme"
+        android:backgroundTint="@color/bege_escuro"
         android:elevation="4dp"
+        android:textStyle="bold"
         android:fontFamily="sans-serif-medium" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Já tem uma conta?"
-        android:textColor="@color/marrom"
+        android:layout_marginTop="15dp"
+        android:fontFamily="sans-serif"
+        android:text="Já tem uma conta no Eventito ?"
         android:textAlignment="center"
-        android:layout_marginTop="16dp"
-        android:fontFamily="sans-serif" />
+        android:textColor="@color/marrom"
+        android:textSize="16sp"
+        android:letterSpacing="0.03"
+        android:textStyle="bold"
+        android:gravity="center" />
 
     <Button
         android:id="@+id/btnVoltarLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Voltar para Login"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="7dp"
         android:padding="12dp"
-        android:textColor="@color/white"
-        android:background="@drawable/button_background"
+        android:textColor="@color/creme"
+        android:textStyle="bold"
+        android:backgroundTint="@color/marrom"
         android:elevation="4dp"
         android:fontFamily="sans-serif-medium" />
 
