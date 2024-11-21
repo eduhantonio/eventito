@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "757874708899",
+    "firebase_url": "https://eventito-a399f-default-rtdb.firebaseio.com",
+    "project_id": "eventito-a399f",
+    "storage_bucket": "eventito-a399f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:757874708899:android:071e1465b177c24eff4a16",
+        "android_client_info": {
+          "package_name": "br.edu.fatec.eventito"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqA6sF-J8sXV_S3nPbDvDhipgkMAF4tM4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:757874708899:android:d67c5c4abb90fd3dff4a16",
+        "android_client_info": {
+          "package_name": "com.example.eventito"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqA6sF-J8sXV_S3nPbDvDhipgkMAF4tM4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
