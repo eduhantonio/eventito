@@ -68,14 +68,15 @@
         android:id="@+id/btnLogar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Logar"
         android:layout_marginTop="24dp"
-        android:padding="16dp"
-        android:textColor="@color/creme"
         android:backgroundTint="@color/bege_escuro"
         android:elevation="6dp"
-        android:textStyle="bold"
-        android:fontFamily="sans-serif-medium" />
+        android:fontFamily="sans-serif-medium"
+        android:onClick="loginUsuario"
+        android:padding="16dp"
+        android:text="Logar"
+        android:textColor="@color/creme"
+        android:textStyle="bold" />
 
     <!-- Texto informativo -->
     <TextView
