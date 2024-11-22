@@ -1,7 +1,9 @@
 package com.example.eventito;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,23 +23,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        Map<String, Object> user = new HashMap<>();
-        user.put("nome_usuario", "teste lalala");
-        user.put("email_usuario", "teste@exemplo.com");
-        user.put("xp_usuario", 10010101);
-
-        db.collection("Usuarios")
-                .add(user)
-                .addOnSuccessListener(documentReference -> {
-                    Log.d("Firebase", "Usuário adicionado com ID: " + documentReference.getId());
-                })
-                .addOnFailureListener(e -> {
-                    Log.w("Firebase", "Erro ao adicionar usuário", e);
-                });
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+    public void irParaCadastro(View view) {
+        Intent intent = new Intent(MainActivity.this, Cadastro.class);
+        startActivity(intent);
     }
 }

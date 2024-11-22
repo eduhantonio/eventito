@@ -1,2 +1,7 @@
-package com.example.eventito.model;public class QrCode {
+package com.example.eventito;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class QrCode extends AppCompatActivity {
+
 }

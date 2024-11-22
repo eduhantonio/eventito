@@ -19,7 +19,7 @@ public class PerfilUsuario extends AppCompatActivity {
 
         // Criar conquistas fixas
         List<Conquista> conquistas = new ArrayList<>();
-        conquistas.add(new Conquista("Visitante Assíduo", "Visite mais eventos para subir de nível. Eai, enquantos você consegue ir ?", 10, 10));
+        conquistas.add(new Conquista("Visitante Assíduo", "Visite mais eventos para subir de nível. Eai, em quantos você consegue ir ?", 10, 10));
         conquistas.add(new Conquista("Apressadinho", "Seja um dos 10 primeiros a chegar", 3, 5));
         conquistas.add(new Conquista("Vou me matar...", "Não aguento mais tanto erroooo", 7, 10));
 
