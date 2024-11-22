@@ -1,30 +1,32 @@
 package com.example.eventito.model;
 
 public class Usuario {
-    private int idUsuario;
+    private String idUsuario;
     private String tipoUsuario;
     private String nomeUsuario;
     private String emailUsuario;
     private String qrCodeUsuario;
     private String conquistasUsuario;
+    private long xpUsuario;
 
-    public Usuario(int idUsuario, String tipoUsuario, String nomeUsuario, String emailUsuario, String qrCodeUsuario, String conquistasUsuario) {
+    public Usuario(String idUsuario, String tipoUsuario, String nomeUsuario, String emailUsuario, String qrCodeUsuario, String conquistasUsuario, long xpUsuario) {
         this.idUsuario = idUsuario;
         this.tipoUsuario = tipoUsuario;
         this.nomeUsuario = nomeUsuario;
         this.emailUsuario = emailUsuario;
         this.qrCodeUsuario = qrCodeUsuario;
         this.conquistasUsuario = conquistasUsuario;
+        this.xpUsuario = xpUsuario;
     }
 
     public Usuario() {
     }
 
-    public int getIdUsuario() {
+    public String getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(int idUsuario) {
+    public void setIdUsuario(String idUsuario) {
         this.idUsuario = idUsuario;
     }
 
@@ -66,5 +68,13 @@ public class Usuario {
 
     public void setConquistasUsuario(String conquistasUsuario) {
         this.conquistasUsuario = conquistasUsuario;
+    }
+
+    public void setXpUsuario(long xpUsuario){
+        this.xpUsuario = xpUsuario;
+    }
+
+    public long getXpUsuario(){
+        return xpUsuario;
     }
 }

@@ -20,7 +20,7 @@ import java.util.Map;
 public class Cadastro extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-    // Declaração dos campos
+
     EditText edtNome;
     EditText edtEmailCadastro;
     EditText edtSenhaCadastro;
@@ -31,7 +31,7 @@ public class Cadastro extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_cadastro);
 
-        // Inicialização dos campos
+
         edtNome = findViewById(R.id.edtNome);
         edtEmailCadastro = findViewById(R.id.edtEmailCadastro);
         edtSenhaCadastro = findViewById(R.id.edtSenhaCadastro);
@@ -43,21 +43,23 @@ public class Cadastro extends AppCompatActivity {
         String nome = edtNome.getText().toString().trim();
         String email = edtEmailCadastro.getText().toString().trim();
         String senha = edtSenhaCadastro.getText().toString().trim();
+        String tipoUsuario = "Visitante / Organizador";
 
         if (nome.isEmpty() || email.isEmpty() || senha.isEmpty()) {
             Log.w("Cadastro", "Preencha todos os campos.");
-            return;  // Impede o envio de dados vazios
+            return;
         }
 
-        // Criação do mapa com os dados do usuário
+
         Map<String, Object> newuser = new HashMap<>();
         newuser.put("nome_usuario", nome);
         newuser.put("email_usuario", email);
         newuser.put("senha_usuario", senha);
         newuser.put("xp_usuario", 0);
+        newuser.put("tipo_usuario", tipoUsuario);
         Log.d("Cadastro", "Dados preparados: " + newuser);
 
-        // Adiciona o usuário ao Firebase
+
         db.collection("Usuarios")
                 .add(newuser)
                 .addOnSuccessListener(documentReference -> {
