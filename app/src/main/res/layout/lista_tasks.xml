@@ -1,0 +1,65 @@
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="12dp"
+    app:cardCornerRadius="16dp"
+    android:id="@+id/listaTasks"
+    app:cardElevation="4dp"
+    android:background="@color/creme">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <!-- Ícone da Task -->
+        <ImageView
+            android:id="@+id/task_icone"
+            android:layout_width="53dp"
+            android:layout_height="65dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/logo_eventito" /> <!-- Alterar para o ícone de task desejado -->
+
+        <!-- Informações da Task -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <!-- Nome da Task -->
+            <TextView
+                android:id="@+id/task_nome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nome da Task"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/preto" />
+
+            <!-- Descrição da Task -->
+            <TextView
+                android:id="@+id/task_descricao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Descrição da task"
+                android:textSize="14sp"
+                android:textColor="@color/preto" />
+
+            <!-- Pontos da Task -->
+            <TextView
+                android:id="@+id/task_pontos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Pontos: 50"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/marrom" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
