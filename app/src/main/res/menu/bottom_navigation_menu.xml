@@ -9,4 +9,7 @@
     <item
         android:id="@+id/nav_add_image"
         android:title="Adicionar Imagem" />
+    <item
+        android:id="@+id/nav_pronto"
+        android:title="Pronto" />
 </menu>

@@ -32,6 +32,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".AdicionarEvento" />
+        <activity android:name=".CreatorTelaEvento" />
+        <activity android:name=".Teste" />
+
     </application>
 
 </manifest>

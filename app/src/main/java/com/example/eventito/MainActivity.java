@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void irParaCadastro(View view) {
-        Intent intent = new Intent(MainActivity.this, Cadastro.class);
+        Intent intent = new Intent(MainActivity.this, AdicionarEvento.class);
         startActivity(intent);
     }
 }
