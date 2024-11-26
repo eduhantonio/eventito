@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_add_title"
+        android:title="Adicionar Título" />
+    <item
+        android:id="@+id/nav_add_paragraph"
+        android:title="Adicionar Parágrafo" />
+    <item
+        android:id="@+id/nav_add_image"
+        android:title="Adicionar Imagem" />
+</menu>
