@@ -1,137 +1,176 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
     android:background="@drawable/background_gradient">
 
-    <LinearLayout
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Nome do Evento -->
+            <EditText
+                android:id="@+id/edtNomeEvento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/input_background"
+                android:fontFamily="sans-serif"
+                android:hint="Nome do Evento"
+                android:inputType="text"
+                android:padding="12dp" />
+
+            <!-- Descrição do Evento -->
+            <EditText
+                android:id="@+id/edtDescricaoEvento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/input_background"
+                android:fontFamily="sans-serif"
+                android:hint="Descrição do Evento"
+                android:inputType="textMultiLine"
+                android:padding="12dp" />
+
+            <!-- Upload de Imagem -->
+            <LinearLayout
+                android:id="@+id/layoutImagens"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnUploadImagem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/bege_escuro"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Selecionar Imagem"
+                    android:textColor="@color/creme" />
+            </LinearLayout>
+
+            <!-- Adicionar Task -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/edtNomeTask"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/input_background"
+                    android:fontFamily="sans-serif"
+                    android:hint="Nome da Task"
+                    android:inputType="text"
+                    android:padding="12dp" />
+
+                <EditText
+                    android:id="@+id/edtPtsText"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/input_background"
+                    android:fontFamily="sans-serif"
+                    android:hint="Pontos"
+                    android:inputType="number"
+                    android:padding="12dp" />
+
+                <Button
+                    android:id="@+id/btnAdicionarTask"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="@color/verde"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Adicionar"
+                    android:textColor="@color/creme" />
+            </LinearLayout>
+
+            <!-- Lista de Tasks -->
+            <LinearLayout
+                android:id="@+id/layoutTasks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <!-- Total de Pontos do Evento -->
+            <TextView
+                android:id="@+id/txtTotalPontos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="Total de Pontos: 0"
+                android:textColor="@color/marrom"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/btnCriarPagina"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:backgroundTint="@color/marrom"
+                android:fontFamily="sans-serif-medium"
+                android:onClick="IrParaEditorDeTelas"
+                android:text="Criar Pagina do evento"
+                android:textColor="@color/creme"
+                android:textStyle="bold" />
+            <!-- Botão Criar Evento -->
+            <Button
+                android:id="@+id/btnCriarEvento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:backgroundTint="@color/marrom"
+                android:fontFamily="sans-serif-medium"
+                android:text="Criar Evento"
+                android:textColor="@color/creme"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_gravity="bottom"
+        android:backgroundTint="@color/white"
+        app:fabCradleMargin="10dp"
+        app:fabCradleRoundedCornerRadius="50dp"
+        app:fabAlignmentMode="center">
 
-        <!-- Nome do Evento -->
-        <EditText
-            android:id="@+id/edtNomeEvento"
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigationView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nome do Evento"
-            android:padding="12dp"
-            android:background="@drawable/input_background"
-            android:inputType="text"
-            android:fontFamily="sans-serif"
-            android:layout_marginBottom="16dp" />
+            app:menu="@menu/navbar_inferior"
+            app:labelVisibilityMode="labeled"
+            android:background="@color/bege_claro" />
+    </com.google.android.material.bottomappbar.BottomAppBar>
 
-        <!-- Descrição do Evento -->
-        <EditText
-            android:id="@+id/edtDescricaoEvento"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Descrição do Evento"
-            android:padding="12dp"
-            android:background="@drawable/input_background"
-            android:inputType="textMultiLine"
-            android:fontFamily="sans-serif"
-            android:layout_marginBottom="16dp" />
+    <!-- Floating Action Button -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:backgroundTint="@color/creme"
+        android:src="@drawable/ic_add_circle"
+        app:layout_anchor="@id/bottomAppBar"
+        app:maxImageSize="40dp"
+        android:tint="@color/black" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-        <!-- Upload de Imagem -->
-        <LinearLayout
-            android:id="@+id/layoutImagens"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="16dp">
 
-            <Button
-                android:id="@+id/btnUploadImagem"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Selecionar Imagem"
-                android:backgroundTint="@color/bege_escuro"
-                android:textColor="@color/creme"
-                android:fontFamily="sans-serif-medium" />
-        </LinearLayout>
-
-        <!-- Adicionar Task -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="16dp">
-
-            <EditText
-                android:id="@+id/edtNomeTask"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="Nome da Task"
-                android:padding="12dp"
-                android:background="@drawable/input_background"
-                android:inputType="text"
-                android:fontFamily="sans-serif" />
-
-            <EditText
-                android:id="@+id/edtPtsText"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:hint="Pontos"
-                android:padding="12dp"
-                android:background="@drawable/input_background"
-                android:inputType="number"
-                android:layout_marginStart="8dp"
-                android:fontFamily="sans-serif" />
-
-            <Button
-                android:id="@+id/btnAdicionarTask"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Adicionar"
-                android:layout_marginStart="8dp"
-                android:backgroundTint="@color/verde"
-                android:textColor="@color/creme"
-                android:fontFamily="sans-serif-medium" />
-        </LinearLayout>
-
-        <!-- Lista de Tasks -->
-        <LinearLayout
-            android:id="@+id/layoutTasks"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-
-        <!-- Total de Pontos do Evento -->
-        <TextView
-            android:id="@+id/txtTotalPontos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Total de Pontos: 0"
-            android:textColor="@color/marrom"
-            android:fontFamily="sans-serif-medium"
-            android:textSize="16sp"
-            android:layout_marginTop="8dp"
-            android:layout_gravity="end" />
-
-        <Button
-            android:id="@+id/btnCriarPagina"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Criar Pagina do evento"
-            android:layout_marginTop="24dp"
-            android:backgroundTint="@color/marrom"
-            android:textColor="@color/creme"
-            android:fontFamily="sans-serif-medium"
-            android:onClick="IrParaEditorDeTelas"
-            android:textStyle="bold" />
-        <!-- Botão Criar Evento -->
-        <Button
-            android:id="@+id/btnCriarEvento"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Criar Evento"
-            android:layout_marginTop="24dp"
-            android:backgroundTint="@color/marrom"
-            android:textColor="@color/creme"
-            android:fontFamily="sans-serif-medium"
-            android:textStyle="bold" />
-    </LinearLayout>
-</ScrollView>
