@@ -27,6 +27,7 @@ public class PerfilUsuario extends AppCompatActivity {
     ConquistaAdapter adapter;
     Map<String, Long> pontosUsuario = new HashMap<>();
     String idUsuario;
+    String emailUsuario;
     String idConquista;
 
     @Override

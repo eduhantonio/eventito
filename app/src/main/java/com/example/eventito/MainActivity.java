@@ -61,10 +61,12 @@ public class MainActivity extends AppCompatActivity {
                             long xp_usuario = document.getLong("xp_usuario");
 
                             Usuario usuario = new Usuario(idUsuario, tipoUsuario, nomeUsuario,email, "", "", xp_usuario);
+                            UsuarioManager.setUsuarioAtual(usuario);
                             Log.d("Login", "Usuário encontrado: " + document.getData());
                             Toast.makeText(this, "Login realizado com sucesso!", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(MainActivity.this, PerfilUsuario.class);
                             intent.putExtra("Id", idUsuario);
+
                             startActivity(intent);
                             finish();
                             return;
