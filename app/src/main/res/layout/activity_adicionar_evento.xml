@@ -53,17 +53,26 @@
                 android:backgroundTint="@color/white" />
 
             <!-- Botão Upload Imagem -->
-            <Button
-                android:id="@+id/btnUploadImagem"
-                android:layout_width="wrap_content"
+            <!-- Upload de Imagem -->
+            <LinearLayout
+                android:id="@+id/layoutImagens"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="16dp"
-                android:backgroundTint="@color/bege_escuro"
-                android:text="Selecionar Imagem"
-                android:textColor="@color/white"
-                android:paddingHorizontal="20dp"
-                android:paddingVertical="12dp" />
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/btnUploadImagem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="16dp"
+                    android:backgroundTint="@color/bege_escuro"
+                    android:text="Selecionar Imagem"
+                    android:textColor="@color/white"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="12dp" />
+            </LinearLayout>
 
             <!-- Seção de Tarefas -->
             <TextView

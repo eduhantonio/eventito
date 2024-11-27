@@ -83,9 +83,9 @@
             android:id="@+id/bottomNavigationView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:menu="@menu/navbar_inferior"
+            android:background="@color/bege_claro"
             app:labelVisibilityMode="labeled"
-            android:background="@color/bege_claro" />
+            app:menu="@menu/navbar_inferior" />
     </com.google.android.material.bottomappbar.BottomAppBar>
 
     <!-- Floating Action Button -->

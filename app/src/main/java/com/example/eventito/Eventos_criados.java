@@ -19,7 +19,7 @@ public class Eventos_criados extends AppCompatActivity {
         setContentView(R.layout.activity_eventos_criados);
 
         // Referência à ListView no layout
-        ListView listViewEventos = findViewById(R.id.listViewEventos);
+        ListView listViewEventos = findViewById(R.id.recyclerViewEventos);
 
         // Criar uma lista de eventos
         ArrayList<Evento> eventos = new ArrayList<>();

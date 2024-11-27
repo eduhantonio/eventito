@@ -49,9 +49,9 @@ public class EventoAdapter extends BaseAdapter {
 
             // Configurar o ViewHolder para armazenar as referências dos componentes
             holder = new ViewHolder();
-            holder.imgFotoEvento = convertView.findViewById(R.id.evento_foto);
-            holder.txtNomeEvento = convertView.findViewById(R.id.evento_nome);
-            holder.txtDescricaoEvento = convertView.findViewById(R.id.evento_descricao);
+            holder.imgFotoEvento = convertView.findViewById(R.id.imgIconEvento);
+            holder.txtNomeEvento = convertView.findViewById(R.id.txtNomeEvento);
+            holder.txtDescricaoEvento = convertView.findViewById(R.id.txtDescricaoEvento);
 
             // Salvar o holder na tag da view
             convertView.setTag(holder);

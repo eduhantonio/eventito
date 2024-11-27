@@ -1,13 +1,17 @@
 package com.example.eventito;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.eventito.model.Conquista;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
@@ -80,5 +84,33 @@ public class PerfilUsuario extends AppCompatActivity {
                         });
                 }
             });
+
+        /*BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.inflateMenu(R.menu.navbar_inferior);
+
+        // Configurar o ouvinte de seleção do BottomNavigationView
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.nav_:  // Substitua com o id real do item no menu
+                        // Ação para o item 1
+                        Intent intent1 = new Intent(MainActivity.this, Activity1.class);
+                        startActivity(intent1);
+                        return true;
+
+                    case R.id.item2:  // Substitua com o id real do item no menu
+                        // Ação para o item 2
+                        Intent intent2 = new Intent(MainActivity.this, Activity2.class);
+                        startActivity(intent2);
+                        return true;
+
+                    // Adicione outros casos conforme necessário
+
+                    default:
+                        return false;
+                }
+            }
+        });*/
     }
 }
