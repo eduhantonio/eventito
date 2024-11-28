@@ -1,52 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@drawable/background_gradient"
+    android:padding="24dp">
 
-    <!-- Campo para o nome do evento -->
+    <!-- Imagem/Banner -->
+    <LinearLayout
+        android:id="@+id/layoutBanner"
+        android:layout_width="0dp"
+        android:layout_height="220dp"
+        android:background="@drawable/banner_colaborador"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Campo para o email -->
-    <android.widget.EditText
+    <!-- Campo para o Email -->
+    <EditText
         android:id="@+id/editTextEmail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:contentDescription="Campo para inserir email do colaborador"
+        android:drawableStart="@drawable/icon_email"
+        android:drawablePadding="8dp"
         android:hint="Email"
-        android:importantForAccessibility="yes"
         android:inputType="textEmailAddress"
+        android:background="@drawable/input_background"
         android:padding="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/preto"
+        android:textColorHint="@color/preto"
+        android:fontFamily="sans-serif"
+        android:elevation="4dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="104dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutBanner" />
 
-    <!-- Campo para a senha -->
-    <android.widget.EditText
+    <!-- Campo para a Senha -->
+    <EditText
         android:id="@+id/editTextSenha"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Senha"
+        android:drawableStart="@drawable/icon_senha"
+        android:drawablePadding="8dp"
         android:inputType="textPassword"
-        android:importantForAccessibility="yes"
-        android:contentDescription="Campo para inserir a senha do colaborador"
+        android:background="@drawable/input_background"
+        android:padding="16dp"
+        android:textColor="@color/preto"
+        android:textColorHint="@color/preto"
+        android:fontFamily="sans-serif"
+        android:elevation="4dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextEmail"
-        android:layout_marginTop="16dp"
-        android:padding="16dp"/>
+        app:layout_constraintTop_toBottomOf="@id/editTextEmail" />
 
-    <!-- Botão para enviar os dados -->
-    <android.widget.Button
+    <!-- Botão Enviar -->
+    <Button
         android:id="@+id/buttonEnviar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Enviar"
-        android:onClick="cadastrarColaborador"
+        android:text="Adicionar Colaborador"
+        android:backgroundTint="@color/marrom"
+        android:textColor="@color/white"
+        android:fontFamily="sans-serif-medium"
         android:padding="16dp"
+        android:elevation="4dp"
+        android:layout_marginTop="22dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editTextSenha"
-        android:layout_marginTop="32dp"/>
+        android:textStyle="bold" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,7 +18,7 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginEnd="12dp"
-            android:src="@drawable/ic_event"
+            android:src="@drawable/icon_evento_lista"
             android:scaleType="centerInside"
             app:tint="@color/bege_escuro" />
 

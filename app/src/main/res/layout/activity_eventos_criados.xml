@@ -11,28 +11,20 @@
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:background="@drawable/banner_eventito"
-        android:padding="16dp">
+        android:layout_height="201dp"
+        android:background="@drawable/banner_lista_eventos"
+        android:padding="16dp" />
 
-    </RelativeLayout>
-
-    <!-- Conteúdo -->
+    <!-- Conteúdo ajustado -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="85dp"
-        android:padding="12dp">
+        android:layout_marginTop="16dp"
+        android:padding="16dp"
+        android:background="@android:color/transparent">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewEventos"
-            android:layout_width="match_parent"
-            android:layout_height="571dp"
-            android:layout_weight="1"
-            android:clipToPadding="false"
-            android:padding="4dp"
-            tools:listitem="@layout/lista_eventos" />
+
     </LinearLayout>
 
     <!-- Bottom Navigation -->
@@ -40,7 +32,7 @@
         android:id="@+id/bottomAppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
+        android:layout_gravity="center|bottom"
         android:backgroundTint="@color/white"
         app:fabCradleMargin="10dp"
         app:fabCradleRoundedCornerRadius="50dp"
@@ -55,17 +47,6 @@
             android:background="@color/bege_claro" />
     </com.google.android.material.bottomappbar.BottomAppBar>
 
-    <TextView
-        android:id="@+id/nomeUsuario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-medium"
-        android:text="Eventos"
-        android:textAlignment="center"
-        android:textColor="@color/creme"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        app:layout_anchor="@+id/relativeLayout"
-        app:layout_anchorGravity="center" />
+    <!-- Título centralizado -->
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -74,21 +74,23 @@
     </LinearLayout>
 
     <!-- Botões -->
+    <!-- Botão Cadastrar -->
     <Button
         android:id="@+id/btnCadastrar"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
         android:backgroundTint="@color/bege_escuro"
         android:elevation="4dp"
         android:fontFamily="sans-serif-medium"
         android:onClick="cadastrarUsuario"
         android:padding="12dp"
-        android:text="Cadastrar"
+        android:text="                   Cadastrar                   "
         android:textColor="@color/creme"
-        android:textStyle="bold"
-        app:toggleCheckedStateOnClick="false" />
+        android:textStyle="bold" />
 
+    <!-- Texto para já tem conta -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -103,16 +105,18 @@
         android:textSize="16sp"
         android:textStyle="bold" />
 
+    <!-- Botão Voltar para Login -->
     <Button
         android:id="@+id/btnVoltarLogin"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
         android:backgroundTint="@color/marrom"
         android:elevation="4dp"
         android:fontFamily="sans-serif-medium"
         android:padding="12dp"
-        android:text="Voltar para Login"
+        android:text="            Voltar para Login            "
         android:textColor="@color/creme"
         android:textStyle="bold" />
 
