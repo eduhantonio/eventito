@@ -42,6 +42,7 @@ public class CreatorTelaEvento extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();  // Instância do Firestore
     private List<LayoutData.LayoutElement> layoutElements = new ArrayList<>();
     private String tituloDoEvento;
+    String nomeEvento;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +55,7 @@ public class CreatorTelaEvento extends AppCompatActivity {
         // Configura a barra de navegação inferior
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
+        nomeEvento = getIntent().getStringExtra("nomeEvento");
         bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -230,9 +232,8 @@ public class CreatorTelaEvento extends AppCompatActivity {
 
     private void pronto() {
         saveLayoutToFirebase();  // Salva o layout na coleção do Firestore
-        Intent intent = new Intent(this, AdicionarEvento.class);
-        intent.putExtra("layoutElements", new Gson().toJson(layoutElements)); // Passa o layout salvo para a próxima tela
-        startActivity(intent);
+        finish();
+
     }
 
     // Exibe um diálogo para redimensionar a imagem
@@ -286,7 +287,7 @@ public class CreatorTelaEvento extends AppCompatActivity {
         String formattedTitle = tituloDoEvento.replaceAll("[^a-zA-Z0-9_-]", "_");
         // Salva os dados do layout no Firebase Firestore
         for (LayoutData.LayoutElement layoutElement : layoutElements) {
-            DocumentReference docRef = db.collection("modificarEvento").document(formattedTitle).collection("elementos").document();
+            DocumentReference docRef = db.collection("modificarEvento").document(nomeEvento).collection("elementos").document();
 
             // Cria um mapa com os dados do layoutElement
             Map<String, Object> layoutData = new HashMap<>();
@@ -304,5 +305,6 @@ public class CreatorTelaEvento extends AppCompatActivity {
                         Toast.makeText(CreatorTelaEvento.this, "Erro ao salvar layout", Toast.LENGTH_SHORT).show();
                     });
         }
+
     }
 }

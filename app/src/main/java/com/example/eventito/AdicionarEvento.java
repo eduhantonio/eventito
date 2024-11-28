@@ -127,12 +127,25 @@ public class AdicionarEvento extends AppCompatActivity {
     }
 
     public void IrParaEditorDeTelas(View view) {
+        String nomeEvento = edtNomeEvento.getText().toString().trim();
+        if (nomeEvento.isEmpty()) {
+            Toast.makeText(this, "Por favor, insira o nome do evento!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Exibe o nome do evento em um Toast
+        Toast.makeText(this, "Nome do evento: " + nomeEvento, Toast.LENGTH_SHORT).show();
+
+        Log.d("AdicionarEvento", "Nome do evento enviado: " + nomeEvento);
+
         Intent intent = new Intent(AdicionarEvento.this, CreatorTelaEvento.class);
+        intent.putExtra("nomeEvento", nomeEvento);
         startActivity(intent);
-        finish();
+
     }
 
     public void IrParaAdicionarColaborador(View view){
+
         String nomeEvento = edtNomeEvento.getText().toString().trim();
         if (nomeEvento.isEmpty()) {
             Toast.makeText(this, "Por favor, insira o nome do evento!", Toast.LENGTH_SHORT).show();
