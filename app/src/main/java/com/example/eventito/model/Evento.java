@@ -1,17 +1,17 @@
 package com.example.eventito.model;
 
 public class Evento {
-        private int foto; // ID do recurso da imagem
+        private String foto; // ID do recurso da imagem
         private String nome;
         private String descricao;
 
-        public Evento(int foto, String nome, String descricao) {
+        public Evento(String  foto, String nome, String descricao) {
             this.foto = foto;
             this.nome = nome;
             this.descricao = descricao;
         }
 
-        public int getFoto() {
+        public String getFoto() {
             return foto;
         }
 

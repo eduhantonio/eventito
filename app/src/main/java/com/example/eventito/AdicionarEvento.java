@@ -20,6 +20,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.eventito.model.Evento;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -158,6 +159,7 @@ public class AdicionarEvento extends AppCompatActivity {
         evento.put("total_pontos", totalPontos);
         evento.put("imagem_evento", imagemBase64);
         evento.put("layout_evento", layoutJson); // Incluindo o layout do evento no campo "layout_evento"
+
 
         // Adicionar tarefas ao evento
         ArrayList<String> tarefas = new ArrayList<>();
