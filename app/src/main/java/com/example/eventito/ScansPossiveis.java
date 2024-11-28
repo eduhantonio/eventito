@@ -17,6 +17,7 @@ import java.util.List;
 public class ScansPossiveis extends AppCompatActivity {
     private FirebaseFirestore db;
     private LinearLayout layoutTarefas;
+    public static String nomeEvento;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,12 +29,12 @@ public class ScansPossiveis extends AppCompatActivity {
         layoutTarefas = findViewById(R.id.layoutTarefas);
 
         // Buscar o nome do evento ou qualquer outro dado necessário
-        String nomeEvento = getIntent().getStringExtra("evento"); // Supõe que o nome do evento foi passado pela Intent
+        if(nomeEvento == null) {
+            nomeEvento = getIntent().getStringExtra("evento"); // Supõe que o nome do evento foi passado pela Intent
+        }
 
         if (nomeEvento != null) {
             buscarEventoPorNome(nomeEvento);
-        } else {
-            Toast.makeText(this, "Nome do evento não encontrado!", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -46,7 +47,7 @@ public class ScansPossiveis extends AppCompatActivity {
                     if (!queryDocumentSnapshots.isEmpty()) {
                         for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
                             // Recuperar o ID do evento ou continuar com o documento encontrado
-                            carregarTarefas(document);
+                            //carregarTarefas(document);
                             break; // Pega apenas o primeiro documento correspondente
                         }
                     } else {
@@ -58,7 +59,7 @@ public class ScansPossiveis extends AppCompatActivity {
                 });
     }
 
-    private void carregarTarefas(QueryDocumentSnapshot document) {
+    /*private void carregarTarefas(QueryDocumentSnapshot document) {
         List<String> tarefas = (List<String>) document.get("tarefas");
 
         if (tarefas != null) {
@@ -72,7 +73,7 @@ public class ScansPossiveis extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Nenhuma tarefa encontrada!", Toast.LENGTH_SHORT).show();
         }
-    }
+    }*/
 
     private void abrirLeitorQRCode(String tarefa) {
         // Passa a tarefa como parâmetro para o leitor de QR Code
@@ -83,6 +84,7 @@ public class ScansPossiveis extends AppCompatActivity {
 
     public void registrarPresenca(View view) {
         Intent intent = new Intent(ScansPossiveis.this, Scanear.class);
+        intent.putExtra("evento", nomeEvento);
         startActivity(intent);
     }
 }

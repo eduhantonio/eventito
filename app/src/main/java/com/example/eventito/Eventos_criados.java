@@ -38,11 +38,15 @@ public class Eventos_criados extends AppCompatActivity {
     List<Evento> eventosList = new ArrayList<>();
     private DatabaseReference databaseReference;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+    public static String idUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eventos_criados);
+        if(idUsuario == null){
+            idUsuario = getIntent().getStringExtra("Id");
+        }
 
         recyclerViewEventos = findViewById(R.id.recyclerViewEventos);
         recyclerViewEventos.setLayoutManager(new LinearLayoutManager(this));
@@ -99,6 +103,7 @@ public class Eventos_criados extends AppCompatActivity {
                 if (itemId == R.id.nav_inferior_perfil) {
                     // Ação para "Perfil"
                     Intent intentPerfil = new Intent(Eventos_criados.this, PerfilUsuario.class);
+                    intentPerfil.putExtra("Id", idUsuario);
                     startActivity(intentPerfil);
                     return true;
                 } else if (itemId == R.id.nav_inferior_eventos) {
