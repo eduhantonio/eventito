@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Base64;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -278,7 +279,7 @@ public class CreatorTelaEvento extends AppCompatActivity {
     private void saveLayoutToFirebase() {
         // Salva os dados do layout no Firebase Firestore
         for (LayoutData.LayoutElement layoutElement : layoutElements) {
-            DocumentReference docRef = db.collection("eventos").document();
+            DocumentReference docRef = db.collection("modificarEvento").document();
 
             // Cria um mapa com os dados do layoutElement
             Map<String, Object> layoutData = new HashMap<>();
@@ -297,5 +298,4 @@ public class CreatorTelaEvento extends AppCompatActivity {
                     });
         }
     }
-
 }

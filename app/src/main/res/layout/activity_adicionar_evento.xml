@@ -150,20 +150,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
                 android:backgroundTint="@color/bege_escuro"
+                android:onClick="IrParaEditorDeTelas"
+                android:paddingVertical="12dp"
                 android:text="Modificar tela do Evento"
                 android:textColor="@color/creme"
-                android:textStyle="bold"
-                android:paddingVertical="12dp" />
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/btnCriarEvento"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/marrom"
+                android:onClick="loginUsuario"
+                android:paddingVertical="12dp"
                 android:text="Criar Evento"
                 android:textColor="@color/creme"
-                android:textStyle="bold"
-                android:paddingVertical="12dp" />
+                android:textStyle="bold" />
         </LinearLayout>
     </ScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

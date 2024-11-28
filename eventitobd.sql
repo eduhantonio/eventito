@@ -4,7 +4,7 @@ use eventitobd;
 CREATE TABLE Usuarios(
     id_usuario INT AUTO_INCREMENT PRIMARY KEY,
     tipo_usuario ENUM('visitante', 'organizador', 'colaborador') NOT NULL,
-    nome_usuario VARCHAR(100) NOT NULL,
+    nome_usuario VARCHAR(100)	 NOT NULL,
     email_usuario VARCHAR(100) NOT NULL,
     qr_code_usuario VARCHAR(255),
     conquistas_usuario TEXT,

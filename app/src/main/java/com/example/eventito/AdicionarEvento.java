@@ -22,11 +22,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import java.lang.reflect.Type;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class AdicionarEvento extends AppCompatActivity {
@@ -34,7 +37,6 @@ public class AdicionarEvento extends AppCompatActivity {
     private static final int PICK_IMAGE_REQUEST = 1;
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-
     private LinearLayout layoutImagens;
     private LinearLayout layoutTasks;
     private TextView txtTotalPontos;
@@ -51,7 +53,8 @@ public class AdicionarEvento extends AppCompatActivity {
         String layoutJson = getIntent().getStringExtra("layoutElements");
         if (layoutJson != null) {
             // Deserializa os dados do layout
-            LayoutData layoutData = new Gson().fromJson(layoutJson, LayoutData.class);
+            Type listType = new TypeToken<List<LayoutData.LayoutElement>>() {}.getType();
+            List<LayoutData.LayoutElement> layoutElements = new Gson().fromJson(layoutJson, listType);
             // Agora você tem acesso aos dados do layout
             // Faça o que for necessário com layoutData
         }
@@ -177,6 +180,12 @@ public class AdicionarEvento extends AppCompatActivity {
                     Toast.makeText(this, "Erro ao salvar o evento", Toast.LENGTH_SHORT).show();
                     Log.e("Firebase", "Erro ao salvar o evento", e);
                 });
+    }
+
+    private void editarEvento(View view){
+        Intent intent = new Intent(AdicionarEvento.this, CreatorTelaEvento.class);
+        startActivity(intent);
+        finish();
     }
 
 }
