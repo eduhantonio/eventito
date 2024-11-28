@@ -68,7 +68,10 @@ public class MainActivity extends AppCompatActivity {
 
                             Intent intent;
                             if(Objects.equals(tipoUsuario, "Colaborador")){
-                                intent = new Intent(MainActivity.this, Scanear.class);
+                                intent = new Intent(MainActivity.this, ScansPossiveis.class);
+
+                                String evento = document.getString("evento");
+                                intent.putExtra("evento", evento);
                             } else {
                                 intent = new Intent(MainActivity.this, PerfilUsuario.class);
                                 intent.putExtra("Id", idUsuario);

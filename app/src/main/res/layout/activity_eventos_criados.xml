@@ -24,7 +24,14 @@
         android:padding="16dp"
         android:background="@android:color/transparent">
 
-
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewEventos"
+            android:layout_width="match_parent"
+            android:layout_height="571dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:padding="4dp"
+            tools:listitem="@layout/lista_eventos" />
     </LinearLayout>
 
     <!-- Bottom Navigation -->

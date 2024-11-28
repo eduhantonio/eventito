@@ -67,16 +67,17 @@
         android:id="@+id/buttonEnviar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Adicionar Colaborador"
-        android:backgroundTint="@color/marrom"
-        android:textColor="@color/white"
-        android:fontFamily="sans-serif-medium"
-        android:padding="16dp"
-        android:elevation="4dp"
         android:layout_marginTop="22dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:backgroundTint="@color/marrom"
+        android:elevation="4dp"
+        android:fontFamily="sans-serif-medium"
+        android:onClick="cadastrarColaborador"
+        android:padding="16dp"
+        android:text="Adicionar Colaborador"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextSenha"
-        android:textStyle="bold" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextSenha" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

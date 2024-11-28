@@ -42,7 +42,7 @@ public class AdicionarEvento extends AppCompatActivity {
     private LinearLayout layoutTasks;
     private TextView txtTotalPontos;
     private int totalPontos = 0;
-
+    EditText edtNomeEvento;
     private Bitmap imagemSelecionadaBitmap;
 
     @Override
@@ -60,7 +60,7 @@ public class AdicionarEvento extends AppCompatActivity {
             // Faça o que for necessário com layoutData
         }
         // Referências aos elementos do layout
-        EditText edtNomeEvento = findViewById(R.id.edtNomeEvento);
+        edtNomeEvento = findViewById(R.id.edtNomeEvento);
         EditText edtDescricaoEvento = findViewById(R.id.edtDescricaoEvento);
         Button btnUploadImagem = findViewById(R.id.btnUploadImagem);
         layoutImagens = findViewById(R.id.layoutImagens);
@@ -125,22 +125,28 @@ public class AdicionarEvento extends AppCompatActivity {
             }
         }
     }
-    EditText edtNomeEvento;
+
     public void IrParaEditorDeTelas(View view) {
+        Intent intent = new Intent(AdicionarEvento.this, CreatorTelaEvento.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void IrParaAdicionarColaborador(View view){
         String nomeEvento = edtNomeEvento.getText().toString().trim();
         if (nomeEvento.isEmpty()) {
             Toast.makeText(this, "Por favor, insira o nome do evento!", Toast.LENGTH_SHORT).show();
             return;
         }
 
+        // Exibe o nome do evento em um Toast
+        Toast.makeText(this, "Nome do evento: " + nomeEvento, Toast.LENGTH_SHORT).show();
+
+        Log.d("AdicionarEvento", "Nome do evento enviado: " + nomeEvento);
+
         Intent intent = new Intent(AdicionarEvento.this, AdicionarColaborador.class);
         // Passa o nome do evento para a próxima tela
         intent.putExtra("nomeEvento", nomeEvento);
-        startActivity(intent);
-    }
-
-    public void IrParaAdicionarColaborador(View view){
-        Intent intent = new Intent(AdicionarEvento.this, AdicionarColaborador.class);
         startActivity(intent);
     }
 
@@ -196,12 +202,6 @@ public class AdicionarEvento extends AppCompatActivity {
                     Toast.makeText(this, "Erro ao salvar o evento", Toast.LENGTH_SHORT).show();
                     Log.e("Firebase", "Erro ao salvar o evento", e);
                 });
-    }
-
-    private void editarEvento(View view){
-        Intent intent = new Intent(AdicionarEvento.this, CreatorTelaEvento.class);
-        startActivity(intent);
-        finish();
     }
 
 }
