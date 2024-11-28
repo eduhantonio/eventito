@@ -62,13 +62,11 @@ public class AdicionarEvento extends AppCompatActivity {
         // Referências aos elementos do layout
         edtNomeEvento = findViewById(R.id.edtNomeEvento);
         EditText edtDescricaoEvento = findViewById(R.id.edtDescricaoEvento);
-        Button btnUploadImagem = findViewById(R.id.btnUploadImagem);
-        layoutImagens = findViewById(R.id.layoutImagens);
+
         layoutTasks = findViewById(R.id.layoutTasks);
         txtTotalPontos = findViewById(R.id.txtTotalPontos);
 
-        // Lógica para upload de imagem
-        btnUploadImagem.setOnClickListener(v -> openImagePicker());
+
 
         // Lógica para adicionar tarefa
         Button btnAdicionarTask = findViewById(R.id.btnAdicionarTask);
@@ -207,7 +205,7 @@ public class AdicionarEvento extends AppCompatActivity {
                 .addOnSuccessListener(documentReference -> {
                     Toast.makeText(this, "Evento salvo com sucesso!", Toast.LENGTH_SHORT).show();
                     // Redireciona para a tela principal
-                    Intent intent = new Intent(AdicionarEvento.this, MainActivity.class);
+                    Intent intent = new Intent(AdicionarEvento.this, Eventos_criados.class);
                     startActivity(intent);
                     finish();
                 })
