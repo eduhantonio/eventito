@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" >
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- Permissão para usar a câmera -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- Declaração do recurso de câmera com required="false" -->
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
 
     <application
         android:allowBackup="true"
@@ -15,7 +20,10 @@
         android:roundIcon="@drawable/logo_eventito"
         android:supportsRtl="true"
         android:theme="@style/Theme.Eventito"
-        tools:targetApi="31" >
+        tools:targetApi="31">
+        <activity
+            android:name=".Scanear"
+            android:exported="false" />
         <activity
             android:name=".Eventos_criados"
             android:exported="false" />
@@ -27,7 +35,7 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -37,6 +45,12 @@
         <activity android:name=".AdicionarEvento" />
         <activity android:name=".CreatorTelaEvento" />
         <activity android:name=".Teste" />
+
+        <!-- CaptureActivity da biblioteca ZXing para leitura de QR Code -->
+        <activity android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            tools:replace="android:screenOrientation"/>
     </application>
 
 </manifest>

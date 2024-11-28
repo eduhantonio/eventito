@@ -19,6 +19,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -64,9 +65,14 @@ public class MainActivity extends AppCompatActivity {
                             UsuarioManager.setUsuarioAtual(usuario);
                             Log.d("Login", "Usuário encontrado: " + document.getData());
                             Toast.makeText(this, "Login realizado com sucesso!", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(MainActivity.this, PerfilUsuario.class);
-                            intent.putExtra("Id", idUsuario);
 
+                            Intent intent;
+                            if(Objects.equals(tipoUsuario, "colaborador")){
+                                intent = new Intent(MainActivity.this, Scanear.class);
+                            } else {
+                                intent = new Intent(MainActivity.this, PerfilUsuario.class);
+                                intent.putExtra("Id", idUsuario);
+                            }
                             startActivity(intent);
                             finish();
                             return;
