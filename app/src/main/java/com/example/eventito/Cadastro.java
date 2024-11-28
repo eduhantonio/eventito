@@ -75,4 +75,8 @@ public class Cadastro extends AppCompatActivity {
                 });
     }
 
+    public void voltarParaLogin(View view){
+        finish();
+    }
+
 }

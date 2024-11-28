@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                                 String evento = document.getString("evento");
                                 intent.putExtra("evento", evento);
                             } else {
-                                intent = new Intent(MainActivity.this, PerfilUsuario.class);
+                                intent = new Intent(MainActivity.this, Eventos_criados.class);
                                 intent.putExtra("Id", idUsuario);
                             }
                             startActivity(intent);
@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void irParaCadastro(View view) {
-        Intent intent = new Intent(MainActivity.this, AdicionarEvento.class);
+        Intent intent = new Intent(MainActivity.this, Cadastro.class);
         startActivity(intent);
     }
 }

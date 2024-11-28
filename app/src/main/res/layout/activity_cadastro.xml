@@ -115,6 +115,7 @@
         android:backgroundTint="@color/marrom"
         android:elevation="4dp"
         android:fontFamily="sans-serif-medium"
+        android:onClick="voltarParaLogin"
         android:padding="12dp"
         android:text="            Voltar para Login            "
         android:textColor="@color/creme"
