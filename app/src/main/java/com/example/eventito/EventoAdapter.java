@@ -1,12 +1,14 @@
 package com.example.eventito;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,11 +22,18 @@ public class EventoAdapter extends RecyclerView.Adapter<EventoAdapter.EventoView
 
     private Context context;
     private List<Evento> eventos;
+    private OnButtonClickListener listener;
+
+    public interface OnButtonClickListener{
+        void onButtonClick(Evento evento);
+
+    }
 
     // Construtor do Adapter
-    public EventoAdapter(Context context, List<Evento> eventos) {
+    public EventoAdapter(Context context, List<Evento> eventos, OnButtonClickListener listener) {
         this.context = context;
         this.eventos = eventos;
+        this.listener = listener;
     }
 
     @Override
@@ -54,6 +63,13 @@ public class EventoAdapter extends RecyclerView.Adapter<EventoAdapter.EventoView
             // Se não houver imagem, defina uma imagem padrão
             holder.imgFotoEvento.setImageResource(R.drawable.ic_event); // Substitua pelo ícone adequado
         }
+
+        holder.btnEntrarEvento.setOnClickListener( v ->{
+            EventoManager.setEventoAtual(evento);
+            Intent intent = new Intent(context, QrCode.class);
+            context.startActivity(intent);
+
+        });
     }
 
     @Override
@@ -67,6 +83,7 @@ public class EventoAdapter extends RecyclerView.Adapter<EventoAdapter.EventoView
         ImageView imgFotoEvento;
         TextView txtNomeEvento;
         TextView txtDescricaoEvento;
+        Button btnEntrarEvento;
 
         public EventoViewHolder(View itemView) {
             super(itemView);
@@ -74,6 +91,8 @@ public class EventoAdapter extends RecyclerView.Adapter<EventoAdapter.EventoView
             imgFotoEvento = itemView.findViewById(R.id.imgIconEvento);
             txtNomeEvento = itemView.findViewById(R.id.txtNomeEvento);
             txtDescricaoEvento = itemView.findViewById(R.id.txtDescricaoEvento);
+            btnEntrarEvento = itemView.findViewById(R.id.btnEntrarEvento);
         }
+
     }
 }

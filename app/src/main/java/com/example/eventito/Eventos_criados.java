@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -46,6 +47,7 @@ public class Eventos_criados extends AppCompatActivity {
         recyclerViewEventos = findViewById(R.id.recyclerViewEventos);
         recyclerViewEventos.setLayoutManager(new LinearLayoutManager(this));
 
+
         List<Evento> eventosList = new ArrayList<>();
 
         db.collection("Eventos")
@@ -62,8 +64,19 @@ public class Eventos_criados extends AppCompatActivity {
                                 eventosList.add(evento);
                             }
                         }
-                        // Após preencher a lista de eventos, configure o Adapter
-                        EventoAdapter eventoAdapter = new EventoAdapter(this, eventosList);
+
+                        // Agora, passamos a implementação de OnButtonClickListener
+                        eventoAdapter = new EventoAdapter(this, eventosList, new EventoAdapter.OnButtonClickListener() {
+                            @Override
+                            public void onButtonClick(Evento evento) {
+                                // Ação a ser realizada quando o botão for clicado
+                                EventoManager.setEventoAtual(evento);
+                                Intent intent = new Intent(Eventos_criados.this, QrCode.class);
+                                startActivity(intent);
+                                // Você pode adicionar mais ações aqui, como navegar para outra tela
+                            }
+                        });
+
                         recyclerViewEventos.setAdapter(eventoAdapter);
                     }
                 })
@@ -102,5 +115,7 @@ public class Eventos_criados extends AppCompatActivity {
                 return false;
             }
         });
+
     }
+
 }

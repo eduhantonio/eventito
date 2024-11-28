@@ -125,9 +125,22 @@ public class AdicionarEvento extends AppCompatActivity {
             }
         }
     }
-
+    EditText edtNomeEvento;
     public void IrParaEditorDeTelas(View view) {
-        Intent intent = new Intent(AdicionarEvento.this, CreatorTelaEvento.class);
+        String nomeEvento = edtNomeEvento.getText().toString().trim();
+        if (nomeEvento.isEmpty()) {
+            Toast.makeText(this, "Por favor, insira o nome do evento!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Intent intent = new Intent(AdicionarEvento.this, AdicionarColaborador.class);
+        // Passa o nome do evento para a próxima tela
+        intent.putExtra("nomeEvento", nomeEvento);
+        startActivity(intent);
+    }
+
+    public void IrParaAdicionarColaborador(View view){
+        Intent intent = new Intent(AdicionarEvento.this, AdicionarColaborador.class);
         startActivity(intent);
     }
 
@@ -159,6 +172,7 @@ public class AdicionarEvento extends AppCompatActivity {
         evento.put("total_pontos", totalPontos);
         evento.put("imagem_evento", imagemBase64);
         evento.put("layout_evento", layoutJson); // Incluindo o layout do evento no campo "layout_evento"
+
 
 
         // Adicionar tarefas ao evento

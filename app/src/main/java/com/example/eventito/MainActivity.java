@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(this, "Login realizado com sucesso!", Toast.LENGTH_SHORT).show();
 
                             Intent intent;
-                            if(Objects.equals(tipoUsuario, "colaborador")){
+                            if(Objects.equals(tipoUsuario, "Colaborador")){
                                 intent = new Intent(MainActivity.this, Scanear.class);
                             } else {
                                 intent = new Intent(MainActivity.this, PerfilUsuario.class);
