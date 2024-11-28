@@ -41,6 +41,7 @@ public class CreatorTelaEvento extends AppCompatActivity {
     private LinearLayout contentContainer;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();  // Instância do Firestore
     private List<LayoutData.LayoutElement> layoutElements = new ArrayList<>();
+    private String tituloDoEvento;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +92,7 @@ public class CreatorTelaEvento extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 String titleText = input.getText().toString().trim();
                 if (!titleText.isEmpty()) {
+                    tituloDoEvento = titleText;
                     addTitle(titleText);
                 } else {
                     Toast.makeText(CreatorTelaEvento.this, "Título não pode estar vazio", Toast.LENGTH_SHORT).show();
@@ -277,9 +279,14 @@ public class CreatorTelaEvento extends AppCompatActivity {
     }
 
     private void saveLayoutToFirebase() {
+        // Formata o título para ser um nome de coleção válido
+        if(tituloDoEvento == null || tituloDoEvento.isEmpty()){
+            Toast.makeText(this, "Título do evento não definido", Toast.LENGTH_SHORT).show();
+        }
+        String formattedTitle = tituloDoEvento.replaceAll("[^a-zA-Z0-9_-]", "_");
         // Salva os dados do layout no Firebase Firestore
         for (LayoutData.LayoutElement layoutElement : layoutElements) {
-            DocumentReference docRef = db.collection("modificarEvento").document();
+            DocumentReference docRef = db.collection("modificarEvento").document(formattedTitle).collection("elementos").document();
 
             // Cria um mapa com os dados do layoutElement
             Map<String, Object> layoutData = new HashMap<>();
