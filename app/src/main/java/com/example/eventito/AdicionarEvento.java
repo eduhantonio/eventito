@@ -62,8 +62,10 @@ public class AdicionarEvento extends AppCompatActivity {
         // Referências aos elementos do layout
         edtNomeEvento = findViewById(R.id.edtNomeEvento);
         EditText edtDescricaoEvento = findViewById(R.id.edtDescricaoEvento);
+
         layoutTasks = findViewById(R.id.layoutTasks);
         txtTotalPontos = findViewById(R.id.txtTotalPontos);
+
 
         // Lógica para upload de imagem
 
