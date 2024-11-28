@@ -66,7 +66,7 @@ public class EventoAdapter extends RecyclerView.Adapter<EventoAdapter.EventoView
 
         holder.btnEntrarEvento.setOnClickListener( v ->{
             EventoManager.setEventoAtual(evento);
-            Intent intent = new Intent(context, QrCode.class);
+            Intent intent = new Intent(context, MontarTela.class);
             context.startActivity(intent);
 
         });

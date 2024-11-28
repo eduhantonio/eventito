@@ -54,6 +54,7 @@
         <activity android:name=".QrCode"/>
         <activity android:name=".AdicionarColaborador" />
         <activity android:name=".ScansPossiveis" />
+        <activity android:name=".MontarTela"/>
 
         <!-- CaptureActivity da biblioteca ZXing para leitura de QR Code -->
         <activity android:name="com.journeyapps.barcodescanner.CaptureActivity"

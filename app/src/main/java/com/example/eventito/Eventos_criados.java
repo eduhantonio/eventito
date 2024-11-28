@@ -71,7 +71,7 @@ public class Eventos_criados extends AppCompatActivity {
                             public void onButtonClick(Evento evento) {
                                 // Ação a ser realizada quando o botão for clicado
                                 EventoManager.setEventoAtual(evento);
-                                Intent intent = new Intent(Eventos_criados.this, QrCode.class);
+                                Intent intent = new Intent(Eventos_criados.this, MontarTela.class);
                                 startActivity(intent);
                                 // Você pode adicionar mais ações aqui, como navegar para outra tela
                             }

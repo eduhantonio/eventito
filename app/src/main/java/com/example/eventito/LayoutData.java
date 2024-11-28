@@ -3,6 +3,7 @@ package com.example.eventito;
 import java.util.List;
 
 public class LayoutData {
+
     public static class LayoutElement {
         private String type;  // Tipo de elemento (ex: "title", "paragraph", "image")
         private String content;  // Conteúdo do elemento (pode ser texto ou outros dados)
@@ -11,6 +12,8 @@ public class LayoutData {
         public LayoutElement(String type, String content) {
             this.type = type;
             this.content = content;
+        }
+        public LayoutElement() {
         }
 
         public String getType() {
