@@ -40,6 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="92dp"
         android:gravity="center"
+        android:onClick="registrarPresenca"
         android:padding="16dp"
         android:text="Registrar Presença"
         android:textColor="@color/creme"
@@ -51,7 +52,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.461"
-        app:layout_constraintMarginBottom="32dp"
         app:layout_constraintStart_toStartOf="@id/layoutTarefas"
         app:strokeColor="@color/creme"
         app:strokeWidth="2dp" />
