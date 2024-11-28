@@ -1,18 +1,22 @@
 package com.example.eventito;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.eventito.model.Evento;
 
 import java.util.List;
 
-public class EventoAdapter extends BaseAdapter {
+public class EventoAdapter extends RecyclerView.Adapter<EventoAdapter.EventoViewHolder> {
 
     private Context context;
     private List<Evento> eventos;
@@ -24,57 +28,52 @@ public class EventoAdapter extends BaseAdapter {
     }
 
     @Override
-    public int getCount() {
-        return eventos.size(); // Retorna o número de itens na lista
+    public EventoViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        // Infla o layout de item (o XML que você forneceu)
+        View view = LayoutInflater.from(context).inflate(R.layout.lista_eventos, parent, false);
+        return new EventoViewHolder(view);
     }
 
     @Override
-    public Object getItem(int position) {
-        return eventos.get(position); // Retorna o objeto do evento na posição especificada
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return position; // Retorna a posição como ID do item
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder;
-
-        // Verificar se o layout precisa ser inflado
-        if (convertView == null) {
-            // Inflar o layout do card
-            convertView = LayoutInflater.from(context).inflate(R.layout.lista_eventos, parent, false);
-
-            // Configurar o ViewHolder para armazenar as referências dos componentes
-            holder = new ViewHolder();
-            holder.imgFotoEvento = convertView.findViewById(R.id.imgIconEvento);
-            holder.txtNomeEvento = convertView.findViewById(R.id.txtNomeEvento);
-            holder.txtDescricaoEvento = convertView.findViewById(R.id.txtDescricaoEvento);
-
-            // Salvar o holder na tag da view
-            convertView.setTag(holder);
-        } else {
-            // Recuperar o holder da tag
-            holder = (ViewHolder) convertView.getTag();
-        }
-
-        // Obter o evento atual
+    public void onBindViewHolder(EventoViewHolder holder, int position) {
+        // Obtém o evento atual
         Evento evento = eventos.get(position);
 
-        // Preencher os dados do evento no card
-        holder.imgFotoEvento.setImageResource(evento.getFoto()); // Configura a foto do evento
-        holder.txtNomeEvento.setText(evento.getNome());          // Configura o nome do evento
-        holder.txtDescricaoEvento.setText(evento.getDescricao()); // Configura a descrição do evento
+        // Configura os dados na ViewHolder
+        holder.txtNomeEvento.setText(evento.getNome());
+        holder.txtDescricaoEvento.setText(evento.getDescricao());
 
-        return convertView;
+        // Se você tiver uma imagem base64 ou URL para a imagem do evento, pode configurar assim:
+        if (evento.getFoto() != null) {
+            // Converta a string base64 para imagem e defina na ImageView
+            // Se for base64, use um método para decodificar e configurar a imagem
+            byte[] decodedString = Base64.decode(evento.getFoto(), Base64.DEFAULT);
+            Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+            holder.imgFotoEvento.setImageBitmap(decodedByte);
+        } else {
+            // Se não houver imagem, defina uma imagem padrão
+            holder.imgFotoEvento.setImageResource(R.drawable.ic_event); // Substitua pelo ícone adequado
+        }
     }
 
-    // ViewHolder para otimizar a performance da ListView
-    static class ViewHolder {
+    @Override
+    public int getItemCount() {
+        return eventos.size(); // Retorna o tamanho da lista de eventos
+    }
+
+    // ViewHolder para otimizar a performance
+    public static class EventoViewHolder extends RecyclerView.ViewHolder {
+
         ImageView imgFotoEvento;
         TextView txtNomeEvento;
         TextView txtDescricaoEvento;
+
+        public EventoViewHolder(View itemView) {
+            super(itemView);
+            // Inicializa as views do item
+            imgFotoEvento = itemView.findViewById(R.id.imgIconEvento);
+            txtNomeEvento = itemView.findViewById(R.id.txtNomeEvento);
+            txtDescricaoEvento = itemView.findViewById(R.id.txtDescricaoEvento);
+        }
     }
 }
